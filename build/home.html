@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="script.js" defer></script>
+    <style>
+        #first-section{
+            background-image: url(img/ckuckyface.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+        #second-section{
+            background-image: url(img/face.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body class="bg-black h-screen">
+    <header class="bg-red-500 flex justify-between p-6 h-1/5 items-center text-white">
+        <div class="flex flex-col">
+            <h1 class="self-center"><i class="fa-solid fa-user text-4xl"></i></h1>
+            <h1 class="text-lg">Username</h1>
+        </div>
+        <div class="flex flex-col">
+            <h1 class="self-center"><i class="fa-solid fa-money-bill text-4xl"></i></h1>
+            <h1 class="text-lg">$500</h1>
+        </div>
+    </header>
+<div id="play" class="absolute">
+    <img src="img/volume.png" id="volume" alt="">
+    <img src="img/mute.png" alt="" id="mute" class="hidden">
+</div>
+<div>
+    <button  class="bg-red-500 hidden" id="cam">Turn On Camera</button>
+<video id="camera-stream" autoplay class="absolute w-80"></video>
+
+</div>
+    <section class="flex flex-col justify-center items-center h-4/5 hidden" id="first-section">
+        <div class="flex flex-col gap-8">
+            
+            <h1 class="text-white text-7xl text-">Truth or Dare</h1>
+        <div class="flex justify-between text-white">
+            <button class="bg-green-500 animate__pulse animate__infinite animate__animated text-4xl p-4 rounded-lg">Truth</button>
+            <button class="bg-red-500 animate__pulse animate__infinite animate__animated text-4xl p-4 rounded-lg">Dare</button>
+        </div>
+        </div>
+    </section>
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="music/scary-forest-90162.mp3" type="audio/mpeg">
+      </audio>
+      <audio id="countdownMusic">
+        <source src="music/Female_Robot_Voice_Countdown_mp3.mp3" type="audio/mpeg">
+      </audio>
+
+      <section class="flex flex-col justify-center items-center h-4/5 text-white " id="second-section">
+        <div class="flex flex-col gap-8 w-1/4">
+            <div class="flex justify-center items-center bg-white border-red-500 border-4 absolute right-4 rounded-full w-20 h-20
+             animate__infinite animate__animated" id="minuteContainer">
+                <h1 class=" text-center text-black text-4xl  " id="minute">60</h1>
+            </div>
+            
+            <h1 class="text-2xl text-center" id="questions">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis rem veritatis, suscipit, aspernatur modi, 
+                eligendi porro quod in sint eum dignissimos dicta nesciunt! Iusto, sint quo modi praesentium cupiditate nulla?</h1>
+        </div>
+        <button class="mt-14 bg-green-500 animate__pulse animate__infinite animate__animated text-xl rounded-xl p-4">Done</button>
+      </section>
+      
+</body>
+
+</html>
