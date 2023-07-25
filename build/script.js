@@ -4,6 +4,8 @@ let volume = document.getElementById("volume")
 let mute = document.getElementById("mute")
 let cam = document.getElementById("cam")
 let questionsEl = document.getElementById("questions")
+let truthBtn = document.getElementById("truthBtn")
+let dareBtn = document.getElementById("dareBtn")
 const horrorTruthQuestions = [
     "Have you ever seen a ghost or experienced something paranormal?",
     "What is your biggest fear and why?",
@@ -129,7 +131,8 @@ function getRandomQuestion(questionsArray) {
   // Set the text content of the element to the random question or "Game Over"
   questionsEl.textContent = randomQuestion;
 
-getRandomQuestion()
+console.log(truthBtn);
+
 
 
 playButton.addEventListener("click", function(){
@@ -172,7 +175,8 @@ let minute = document.getElementById("minute");
 let minuteContainer = document.getElementById("minuteContainer")
 let time = 60;
 let coutdownMusic = document.getElementById("countdownMusic")
-
+let firstSection = document.getElementById("first-section")
+let secondSection = document.getElementById("second-section")
 const countDown = setInterval(function() {
   minute.textContent =time;
   time--;
@@ -183,7 +187,10 @@ const countDown = setInterval(function() {
   }
   if (time < -1) {
     clearInterval(countDown);
-    alert("Time is up!");
+    secondSection.classList.remove("flex")
+    secondSection.classList.add("hidden")
+    firstSection.classList.remove("hidden")
+
   }
   
 }, 1000);

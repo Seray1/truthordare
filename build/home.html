@@ -35,7 +35,7 @@
             <h1 class="text-lg">$500</h1>
         </div>
     </header>
-<div id="play" class="absolute">
+<div id="play" class="">
     <img src="img/volume.png" id="volume" alt="">
     <img src="img/mute.png" alt="" id="mute" class="hidden">
 </div>
@@ -44,13 +44,13 @@
 <video id="camera-stream" autoplay class="absolute w-80"></video>
 
 </div>
-    <section class="flex flex-col justify-center items-center h-4/5 hidden" id="first-section">
+    <section  class="flex flex-col justify-center items-center h-4/5" id="first-section">
         <div class="flex flex-col gap-8">
             
             <h1 class="text-white text-7xl text-">Truth or Dare</h1>
         <div class="flex justify-between text-white">
-            <button class="bg-green-500 animate__pulse animate__infinite animate__animated text-4xl p-4 rounded-lg">Truth</button>
-            <button class="bg-red-500 animate__pulse animate__infinite animate__animated text-4xl p-4 rounded-lg">Dare</button>
+            <button id="truthBtn" class="bg-green-500 animate__pulse animate__infinite animate__animated text-4xl p-4 rounded-lg">Truth</button>
+            <button id="dareBtn" class="bg-red-500 animate__pulse animate__infinite animate__animated text-4xl p-4 rounded-lg">Dare</button>
         </div>
         </div>
     </section>
