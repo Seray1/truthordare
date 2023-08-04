@@ -1,24 +1,109 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Stopwatch Countdown</title>
+    <title>Truth or Dare Game</title>
 </head>
 <body>
-  <h1 id="timer">60</h1>
+    <div id="startPage">
+        <h1>Truth or Dare</h1>
+        <button id="truthBtn">Truth</button>
+        <button id="dareBtn">Dare</button>
+    </div>
 
-  <script>
-    const timerElement = document.getElementById("timer");
-    let time = 60;
+    <div id="questionPage" style="display: none;">
+        <p id="question"></p>
+        <button id="doneBtn">Done</button>
+        <p id="timer">60</p>
+    </div>
 
-    const countdown = setInterval(function() {
-      timerElement.textContent = time;
-      time--;
-
-      if (time < 0) {
-        clearInterval(countdown);
-        alert("Time is up!");
-      }
-    }, 1000);
-  </script>
+    <script src="script.js"></script>
 </body>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const startPage = document.getElementById("startPage");
+    const questionPage = document.getElementById("questionPage");
+    const questionDisplay = document.getElementById("question");
+    const truthBtn = document.getElementById("truthBtn");
+    const dareBtn = document.getElementById("dareBtn");
+    const doneBtn = document.getElementById("doneBtn");
+    const timerDisplay = document.getElementById("timer");
+
+    const truthQuestions = [
+        "Have you ever lied about your age?",
+        "What's your biggest fear?",
+        "Have you ever stolen something?",
+        // Add more truth questions as needed
+    ];
+
+    const dareQuestions = [
+        "Sing a song in front of everyone.",
+        "Do your best impression of a famous person.",
+        "Wear your clothes backward for the next two rounds.",
+        // Add more dare questions as needed
+    ];
+
+    let timerInterval;
+    let currentQuestionType;
+
+    function showStartPage() {
+        startPage.style.display = "block";
+        questionPage.style.display = "none";
+        clearInterval(timerInterval);
+    }
+
+    function showQuestionPage(questionType) {
+        startPage.style.display = "none";
+        questionPage.style.display = "block";
+        currentQuestionType = questionType;
+        setQuestionAndStartTimer();
+    }
+
+    function setQuestionAndStartTimer() {
+        let question;
+        if (currentQuestionType === "truth") {
+            question = getRandomQuestion(truthQuestions);
+        } else if (currentQuestionType === "dare") {
+            question = getRandomQuestion(dareQuestions);
+        }
+
+        questionDisplay.textContent = question;
+        startTimer(60);
+    }
+
+    function getRandomQuestion(questionsArray) {
+        return questionsArray[Math.floor(Math.random() * questionsArray.length)];
+    }
+
+    function startTimer(duration) {
+        let time = duration;
+        timerDisplay.textContent = time;
+
+        timerInterval = setInterval(function() {
+            time--;
+            timerDisplay.textContent = time;
+
+            if (time <= 0) {
+                clearInterval(timerInterval);
+                showStartPage();
+            }
+        }, 1000);
+    }
+
+    truthBtn.addEventListener("click", function() {
+        showQuestionPage("truth");
+    });
+
+    dareBtn.addEventListener("click", function() {
+        showQuestionPage("dare");
+    });
+
+    doneBtn.addEventListener("click", function() {
+        showStartPage();
+    });
+
+    // Show the start page initially
+    showStartPage();
+});
+
+</script>
 </html>
