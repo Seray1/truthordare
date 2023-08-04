@@ -287,6 +287,19 @@ function startCountdown() {
       minuteContainer.classList.remove("animate__flash");
     }
     if (time < -1) {
+      let loggedInAmount = parseInt(localStorage.getItem("loggedInAmount"));
+if (loggedInUsername && !isNaN(loggedInAmount)) {
+// Decrease the amount by 50
+loggedInAmount -= 10;
+
+// Save the updated amount back to Local Storage
+localStorage.setItem("loggedInAmount", loggedInAmount);
+
+// Display the updated amount on the welcome message
+balance.textContent = `$ ${loggedInAmount}`;
+
+// Here, you can also make an API call to update the amount in the server-side database if needed.
+}
         clearInterval(countDown);
         secondSection.classList.remove("flex");
         secondSection.classList.add("hidden");
@@ -433,22 +446,6 @@ function toggleWebcam(isWebcamOn) {
 }
 
 
-//   minute.textContent =time;
-//   time--;
-
-//   if (time < 10){
-//     minuteContainer.classList.add("animate__flash");
-//     coutdownMusic.play()
-//   }
-//   if (time < -1) {
-//     clearInterval(countDown);
-//     secondSection.classList.remove("flex")
-//     secondSection.classList.add("hidden")
-//     firstSection.classList.remove("hidden")
-
-//   }
-  
-// }, 1000);
 
   
 
